@@ -1,5 +1,6 @@
 package Classes;
 
+import Interfaces.iReturnOrder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import Interfaces.iQueueBehaviour;
 /**
  * класс Магазин, в нем Очередь из покупателей
  */
-public class Market implements iMarketBehaviour, iQueueBehaviour {
+public class Market implements iMarketBehaviour, iQueueBehaviour, iReturnOrder {
 
 
   private List<iActorBehaviour> queue;///< очередь из покупателей-интерфейсов
@@ -79,5 +80,21 @@ public class Market implements iMarketBehaviour, iQueueBehaviour {
         System.out.println(actor.getActor().getName() + " клиент сделал заказ ");
       }
     }
+  }
+
+  /**
+   * покупатель принес товар в магазин
+   */
+  @Override
+  public void giveBackOrder() {
+    
+  }
+
+  /**
+   * покупатель получил назад деньги за товар
+   */
+  @Override
+  public void backMoney() {
+
   }
 }
