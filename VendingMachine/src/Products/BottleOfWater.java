@@ -1,5 +1,8 @@
 package Products;
 
+/**
+ * Класс бутилированных напитков
+ */
 public class BottleOfWater extends Product {
 
     private int volume;
@@ -18,7 +21,7 @@ public class BottleOfWater extends Product {
         this.volume = volume;
     }
 
-        /**
+    /**
      * переопределение вывода продукта
      */
     @Override
