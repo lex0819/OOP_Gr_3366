@@ -44,4 +44,29 @@ public class SpecialClient extends Actor{
     public Actor getActor() {
         return this;
     }
+
+    /**
+     * покупатель принес товар в магазин
+     */
+    @Override
+    public boolean isBackOrder() { return super.isBackOrder;}
+
+    /**
+     * @param makeReturn покупатель заявил о возврате товара тогда возвращает истину
+     */
+    @Override
+    public void setBackOrder(boolean makeReturn) { super.isBackOrder = makeReturn;}
+
+    /**
+     * покупатель получил назад деньги за товар
+     */
+    @Override
+    public boolean isBackMoney() { return super.isBackMoney;}
+
+    /**
+     * @param backMoney покупатель получил деньги назад за товар тогда истина
+     */
+    @Override
+    public void setBackMoney(boolean backMoney) { super.isBackMoney = backMoney;}
+
 }

@@ -7,28 +7,26 @@ import Classes.Actor;
  */
 public interface iActorBehaviour {
     /**
-     * @param makeOrder
-     * истина, если покупатель сделал заказ
-     */
-    void setMakeOrder(boolean makeOrder);
-
-    /**
-     * @param pickUpOrder
-     * истина, если покупатель получил заказ
-     */
-    void setTakeOrder(boolean pickUpOrder);
-
-    /**
-     * @return
-     * возвращает истину если покупатель сделал заказ
+     * @return возвращает истину если покупатель сделал заказ
      */
     boolean isMakeOrder();
 
     /**
-     * @return
-     * возвращает истину если покупатель получил товар
+     * @param makeOrder
+     * устанавливает истину, если покупатель сделал заказ
+     */
+    void setMakeOrder(boolean makeOrder);
+
+    /**
+     * @return возвращает истину если покупатель получил товар
      */
     boolean isTakeOrder();
+
+    /**
+     * @param pickUpOrder
+     * устанавливает истину, если покупатель получил заказ
+     */
+    void setTakeOrder(boolean pickUpOrder);
 
     /**
      * @return this

@@ -28,20 +28,18 @@ public class App {
 
     iActorBehaviour item5 = new PromoClient("Sergey", "promo1");
 
-    int countPromoActors = ((PromoClient) item5.getActor()).getCountActorPromo();///< подсчет покупателей, которые идут по акции, статика
-
-    /**
+    /*
      * При создании нового акционного клиента проверяем их общее количество
      * если перевалило за макс. число участников акции
      * то в обслуживании не отказываем полностью
      * а обслуживаем как обычного клиента
      * вместо new PromoClient() делаем new OrdinaryClient()
      */
-    iActorBehaviour item6 = countPromoActors < maxPromoClients ? new PromoClient("Pavel", "promo1")
+    iActorBehaviour item6 = ((PromoClient) item5.getActor()).getCountActorPromo() < maxPromoClients ? new PromoClient("Pavel", "promo1")
         : new OrdinaryClient("Pavel");
-    iActorBehaviour item7 = countPromoActors < maxPromoClients ? new PromoClient("Tanya", "promo1")
+    iActorBehaviour item7 = ((PromoClient) item5.getActor()).getCountActorPromo() < maxPromoClients ? new PromoClient("Tanya", "promo1")
         : new OrdinaryClient("Tanya");
-    iActorBehaviour item8 = countPromoActors < maxPromoClients ? new PromoClient("Olga", "promo1")
+    iActorBehaviour item8 = ((PromoClient) item5.getActor()).getCountActorPromo() < maxPromoClients ? new PromoClient("Olga", "promo1")
         : new OrdinaryClient("Olga");
 
     market.acceptToMarket(item1);
