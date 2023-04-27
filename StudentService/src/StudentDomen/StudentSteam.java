@@ -1,11 +1,14 @@
 package StudentDomen;
 
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 /**
  * класс порождает группы студентов
- * список студентов, итерируемый и сортируемый по числу студентов в группе
+ * список групп студентов, итерируемый и сортируемый
+ * по числу студентов в группе
+ * и по идентификаторы группы
  */
 public class StudentSteam implements Iterable<StudentGroup>{
 
@@ -26,11 +29,11 @@ public class StudentSteam implements Iterable<StudentGroup>{
     this.name = name;
   }
 
-  public String getCourseName() {
+  public String getSteamName() {
     return name;
   }
 
-  public void setCourseName(String name) {
+  public void setSteamName(String name) {
     this.name = name;
   }
 
@@ -48,5 +51,28 @@ public class StudentSteam implements Iterable<StudentGroup>{
   @Override
   public Iterator<StudentGroup> iterator() {
     return new StudentSteamIterator(groups);
+  }
+  public int getCountOfGroups(){
+    return groups.size();
+  }
+
+  /**
+   * nice print выводить номер потока, количество групп
+   * и список студентов с указанием идентификатора группы
+   */
+  @Override
+  public String toString(){
+    String res = "\nStream is " + this.getSteamName();
+    res += " count of groups is " + this.getCountOfGroups() + "\n";
+
+    Collections.sort(this.getGroups());
+
+    for ( StudentGroup group: this){
+      for (Student stud: group.getStudents()){
+        res += stud.toString() + group.getGroupGroupID() + "\n";
+      }
+    }
+
+    return res;
   }
 }

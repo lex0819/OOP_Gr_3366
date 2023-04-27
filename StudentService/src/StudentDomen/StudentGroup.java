@@ -3,6 +3,12 @@ package StudentDomen;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * класс порождает Группу Студентов
+ * с возможностью итерирования по Студентам
+ * и возможностью сортировки групп по числу студентов
+ * и по идентификатору группы
+ */
 public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup> {
 
   /**
@@ -10,10 +16,13 @@ public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>
    */
   private List<Student> students;
   /**
-   * название группы
+   * идентификатор группы
    */
   private String groupID;
 
+  /**
+   * конструктор
+   */
   public StudentGroup(List<Student> students, String groupID) {
     this.students = students;
     this.groupID = groupID;
@@ -68,12 +77,17 @@ public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>
   }
 
   /**
-   * сравнение двух групп студентов по числу студентов в каждой группе
+   * сравнение двух групп студентов
+   * по числу студентов в каждой группе
+   * и по идентификатору группы
    */
   @Override
   public int compareTo(StudentGroup o) {
     if (this.getCountOfStudents() == o.getCountOfStudents()) {
-      return 0;
+      if(this.groupID.equals(o.groupID) ){
+        return 0;
+      }
+      return this.groupID.compareTo(o.groupID);
     }
     if (this.getCountOfStudents() < o.getCountOfStudents()) {
       return -1;
@@ -81,6 +95,10 @@ public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>
     return 1;
   }
 
+  /**
+   * nice print идентификатор группы, число студентов в группе
+   * и список самих студентов из группы
+   */
   @Override
   public String toString(){
     String res = "\nGroupID is " + this.getGroupGroupID();

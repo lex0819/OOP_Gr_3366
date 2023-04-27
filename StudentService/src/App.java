@@ -88,24 +88,36 @@ public class App {
 
          StudentGroup group03 = new StudentGroup(listStud03, "группа 03");
 
+         Student s13 = new Student("Mаша", "Цветкова", 23, (long)171);
+         Student s14 = new Student("Леkа", "Незабудкина", 23, (long)104);
+
+         List<Student> listStud04 = new ArrayList<Student>();
+         listStud04.add(s13);
+         listStud04.add(s14);
+
+         StudentGroup group04 = new StudentGroup(listStud04, "группа 04");
+
          List<StudentGroup> listGroup01 = new ArrayList<StudentGroup>();
          listGroup01.add(group01);
          listGroup01.add(group02);
          listGroup01.add(group03);
+         listGroup01.add(group04);
 
          StudentSteam course01 = new StudentSteam(listGroup01, "поток 01");
 
-         System.out.println(course01.getCourseName());
+//         System.out.println(course01.getSteamName());
+//
+//         for ( StudentGroup group: course01){
+//              System.out.println(group);
+//         }
+//
+//         System.out.println("============= после сортировки =============");
+//         Collections.sort(course01.getGroups());
+//
+//         for ( StudentGroup group: course01){
+//              System.out.println(group);
+//         }
 
-         for ( StudentGroup group: course01){
-              System.out.println(group);
-         }
-
-         System.out.println("============= после сортировки =============");
-         Collections.sort(course01.getGroups());
-
-         for ( StudentGroup group: course01){
-              System.out.println(group);
-         }
+         System.out.println(course01);
     }
 }

@@ -3,6 +3,9 @@ package StudentDomen;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * класс-итератор для объектов класса StudentSteam
+ */
 public class StudentSteamIterator implements Iterator<StudentGroup> {
   private int counter;
   private final List<StudentGroup> groups;
