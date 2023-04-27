@@ -98,20 +98,14 @@ public class App {
          System.out.println(course01.getCourseName());
 
          for ( StudentGroup group: course01){
-              System.out.println(group.getGroupName());
-              for (Student stud: group){
-                   System.out.println(stud);
-              }
+              System.out.println(group);
          }
 
          System.out.println("============= после сортировки =============");
          Collections.sort(course01.getGroups());
 
          for ( StudentGroup group: course01){
-              System.out.println(group.getGroupName());
-              for (Student stud: group){
-                   System.out.println(stud);
-              }
+              System.out.println(group);
          }
     }
 }

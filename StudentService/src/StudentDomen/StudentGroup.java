@@ -12,17 +12,17 @@ public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>
   /**
    * название группы
    */
-  private String name;
+  private String groupID;
 
-  public StudentGroup(List<Student> students, String name) {
+  public StudentGroup(List<Student> students, String groupID) {
     this.students = students;
-    this.name = name;
+    this.groupID = groupID;
   }
 
-  public String getGroupName(){return this.name;}
+  public String getGroupGroupID(){return this.groupID;}
 
-  public void setGroupName(String name) {
-    this.name = name;
+  public void setGroupGroupID(String groupID) {
+    this.groupID = groupID;
   }
 
   public List<Student> getStudents() {
@@ -79,5 +79,17 @@ public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>
       return -1;
     }
     return 1;
+  }
+
+  @Override
+  public String toString(){
+    String res = "\nGroupID is " + this.getGroupGroupID();
+    res += " count of students is " + this.getCountOfStudents() + "\n";
+
+    for (Student stud: this.getStudents()){
+      res += stud.toString() + "\n";
+    }
+
+    return res;
   }
 }
