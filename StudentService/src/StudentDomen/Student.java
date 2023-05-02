@@ -5,18 +5,31 @@ package StudentDomen;
  */
 public class Student extends User implements Comparable<Student> {
 
-  private long studentID;
+  private long studentID;///< ID студента
 
+  /**
+   * конструктор
+   *
+   * @param firstName  Фамилия
+   * @param secondName Имя
+   * @param age        возраст
+   * @param studentID  ID студента
+   */
   public Student(String firstName, String secondName, int age, long studentID) {
     super(firstName, secondName, age);
     this.studentID = studentID;
   }
 
-
+  /**
+   * @return ID студента
+   */
   public long getStudentID() {
     return studentID;
   }
 
+  /**
+   * @param studentID ID студента присваивает ID студента
+   */
   public void setStudentID(long studentID) {
     this.studentID = studentID;
   }
@@ -35,9 +48,8 @@ public class Student extends User implements Comparable<Student> {
         '}';
   }
 
-
   /**
-   * для сортировки студентов по возравту и по ID
+   * для сортировки студентов по возрасту и по ID
    */
   @Override
   public int compareTo(Student o) {

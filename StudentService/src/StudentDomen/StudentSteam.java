@@ -12,14 +12,8 @@ import java.util.List;
  */
 public class StudentSteam implements Iterable<StudentGroup>{
 
-  /**
-   * список групп на курсе
-   */
-  private List<StudentGroup> groups;
-  /**
-   * название курса
-   */
-  private String name;
+ private List<StudentGroup> groups;///< список групп на курсе
+ private String name;///< название курса
 
   /**
    * constructor
@@ -46,7 +40,7 @@ public class StudentSteam implements Iterable<StudentGroup>{
   }
 
   /**
-   * @return an Iterator.
+   * @return an Iterator for objects of StudentGroup.
    */
   @Override
   public Iterator<StudentGroup> iterator() {

@@ -7,8 +7,13 @@ import java.util.List;
  * класс-итератор для объектов класса StudentSteam
  */
 public class StudentSteamIterator implements Iterator<StudentGroup> {
-  private int counter;
-  private final List<StudentGroup> groups;
+  private int counter;///< счетчик групп в потоке
+  private final List<StudentGroup> groups;///< список групп в потоке
+
+  /**
+   * конструктор
+   * @param groups список групп в потоке
+   */
   public StudentSteamIterator(List<StudentGroup> groups) {
     this.groups = groups;
     this.counter = 0;

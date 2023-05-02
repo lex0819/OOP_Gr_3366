@@ -47,16 +47,27 @@ public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>
   //     return new StudentGroupIterator(students);
   // }
 
+  /**
+   * @return класс-итерратор для объектов типа Student
+   * содержащий методы перечисления
+   */
   @Override
   public Iterator<Student> iterator() {
     return new Iterator<Student>() {
       private int index = 0;
 
+      /**
+       * @return истину если есть следующий объект в коллекции
+       */
       @Override
       public boolean hasNext() {
         return index < students.size();
       }
 
+      /**
+       * @return индекс объекта в коллекции
+       * "переводит курсор" на следующий объект коллекции
+       */
       @Override
       public Student next() {
         if (!hasNext()) {
