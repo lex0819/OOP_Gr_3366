@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * класс предоставляет функционал для работы с моделью данных
- * список студентов реализован через библиотечный класс JAVA List
+ * список студентов реализован через библиотечный класс JAVA HashMap
  */
 public class ModelHashMap implements iGetModel {
     private HashMap<Long, Student> students;///< список студентов
