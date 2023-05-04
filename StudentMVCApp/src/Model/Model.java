@@ -23,8 +23,17 @@ public class Model implements iGetModel {
      * метод возвращает список студентов
      * @return список студентов
      */
+    @Override
     public List<Student> getAllStudent()
     {
         return students;
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public long deleteStudent(long id) {
+        return id;
     }
 }

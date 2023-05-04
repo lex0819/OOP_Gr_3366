@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.iGetModel;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -7,15 +9,13 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import Controller.iGetModel;
-
 /**
  * класс предоставляет методы для работы с текстовым файлом
  * в котором содержится список студентов
  * можно читать из файла
  * можно записывать в файл
  */
-public class FileRepo implements iGetModel {
+public class FileRepo_old implements iGetModel {
     private String fileName;///< путь к файлу/имя файла
     private List<Student> students;///< список студентов
 
@@ -24,7 +24,7 @@ public class FileRepo implements iGetModel {
      * инициирует файл и список студентов в памяти
      * @param fileName путь к файлу с данными, со списком студентов
      */
-    public FileRepo(String fileName) {
+    public FileRepo_old(String fileName) {
         this.fileName = fileName;
         this.students = new ArrayList<>();
         try(FileWriter fw = new FileWriter(fileName, true))
@@ -47,12 +47,9 @@ public class FileRepo implements iGetModel {
     /**
      * метод открывает файл fileName и читает из него список студентов
      * заполняет этими данными students - список студентов в памяти
-     * при каждом новом чтении файла список перезатирается
-     * новыми данными из файла
      */
     public void readAllStudentsFromFile()
     {
-        students.clear();// добавила обнуление списка, иначе было задвоение, затроение и тд
         try
         {
             File file = new File(fileName);
@@ -77,13 +74,10 @@ public class FileRepo implements iGetModel {
     /**
      * метод открывает файл fileName и записывает в него список студентов
      * из списка в памяти students
-     * запись в конец файла заменена на перезапись всего содержимого файла
-     * списком объктов Студент из памяти
-     * потому, что было задвоение, затроение и т.д.
      */
     public void saveAllStudentToFile()
     {
-        try(FileWriter fw = new FileWriter(fileName, false))
+        try(FileWriter fw = new FileWriter(fileName, true))
         {
             for(Student pers : students)
             {
@@ -107,29 +101,12 @@ public class FileRepo implements iGetModel {
     }
 
     /**
-     * метод удаляет студента по его номеру из списка в памяти
-     * и сохраняет актуальный список студентов в файл
-     * удаление стандартной функцией remove()
-     * список мутирует!!! Иммутабельности нет!
-     * @return id студента в случае успешного удаления,
-     * либо -1, если нет студента с таким номером
+     * @return
      */
     @Override
     public long deleteStudent(long id) {
-        int index = -1;
-        for(Student student: students){
-
-            if(student.getStudentID() == id){
-                index = students.indexOf(student);
-            }
-        }
-        if(index == -1){
-            return -1;
-        }else {
-            students.remove(index);
-            saveAllStudentToFile();
-            return id;
-        }
+        System.out.println("Хотим удалить студента "+id);
+        return id;
     }
 
 }

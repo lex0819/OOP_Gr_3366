@@ -12,4 +12,5 @@ public interface iGetModel {
      * @return список студентов
      */
     public List<Student> getAllStudent();
+    public long deleteStudent(long studentID);
 }

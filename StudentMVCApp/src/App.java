@@ -7,13 +7,14 @@ import Controller.Controller;
 import Controller.iGetModel;
 import Controller.iGetView;
 import Model.FileRepo;
-import Model.Model;
+//import Model.Model;
 
 import Model.Student;
 import View.View;
 import View.ViewEng;
 
 public class App {
+
     public static void main(String[] args) throws Exception {
 
         List<Student> students = new ArrayList<Student>();
@@ -39,17 +40,19 @@ public class App {
         //    fileRepo.saveAllStudentToFile();
 
 
-        iGetModel model = new Model(students);
+//        iGetModel model = new Model(students);
         iGetModel modelFileRepo = fileRepo;
 
         System.out.println("Выберите язык интерфейса\n1 - english\n2 - русский");
         Scanner in = new Scanner(System.in);
+        var answer = in.nextLine();
 
-        if(Objects.equals(in.nextLine(), "1")){
+        if( answer.equals("1") ){
             iGetView view = new ViewEng();
             Controller control = new Controller(view, modelFileRepo);
+            //control.updateView();
             control.run();
-        }else if(Objects.equals(in.nextLine(), "2")){
+        }else if(answer.equals("2")){
             iGetView view = new View();
             Controller control = new Controller(view, modelFileRepo);
             control.run();

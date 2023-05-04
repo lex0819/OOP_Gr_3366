@@ -2,6 +2,7 @@ package Controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 //import javax.jws.WebParam.Mode;
 
@@ -18,6 +19,7 @@ public class Controller {
     private List<Student> students;///< список студентов
     private iGetView view;///< View визуальный интерфейс в консоли
     private iGetModel model;///< Model функционал для работы с данными
+    Scanner in = new Scanner(System.in);
 
     /**
      * конструктор
@@ -36,6 +38,23 @@ public class Controller {
     public void getAllStudent()
     {
         students = model.getAllStudent();
+    }
+
+    /**
+     * метод удаления студента по его номеру
+     * запрашивает номер с консоли
+     */
+    public void deleteStudentID()
+    {
+        System.out.println("Введите номер студента:  ");
+        long id = Long.parseLong(in.nextLine());
+        long res = model.deleteStudent(id);
+
+        if(res == -1){
+            System.out.printf("Студент с номером %d не найден в списке\n", id);
+        }else {
+            System.out.printf("Студент с номером %d успешно удален\n", id);
+        }
     }
 
     /**
@@ -92,7 +111,11 @@ public class Controller {
                     System.out.println(view.getExit());
                     break;
                 case LIST:
-                    getAllStudent();
+//                    getAllStudent(); двойной вызов, двойной список
+                    updateView();
+                    break;
+                case DELETE:
+                    deleteStudentID();
                     updateView();
                     break;
             }
