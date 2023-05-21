@@ -1,7 +1,5 @@
 import Liskov.*;
-import engine.Auto;
-import engine.DieselEngine;
-import engine.PetrolEngine;
+import engine.*;
 import vehicle.*;
 import employee.*;
 import shape.*;
